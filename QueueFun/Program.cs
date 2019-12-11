@@ -36,7 +36,7 @@ namespace QueueFun
 
         private static void SendMessage(in int i)
         {
-            _bus.Publish(new AnswerRegistered(Guid.NewGuid(), $"id_{i}"));
+            _bus.Publish(new AnswerCollectionRegistered(Guid.NewGuid(), $"id_{i}"));
         }
     }
 }

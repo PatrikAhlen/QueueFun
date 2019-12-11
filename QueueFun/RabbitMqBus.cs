@@ -38,9 +38,9 @@ namespace QueueFun
             return _bus.StopAsync(cancellationToken);
         }
 
-        public void Publish(AnswerRegistered answerRegistered)
+        public void Publish(AnswerCollectionRegistered answerCollectionRegistered)
         {
-            _bus.Publish<IAnswerRegistered>(answerRegistered);
+            _bus.Publish<IAnswerCollectionRegistered>(answerCollectionRegistered);
         }
     }
 }
