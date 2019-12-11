@@ -12,17 +12,23 @@ namespace QueueFun
         {
             _bus.StartAsync(new CancellationToken());
 
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("###### Lets send some messages! ######");
             Console.WriteLine("Enter number of messages you want to fire:");
             var count = Console.ReadLine();
-
-            if (int.TryParse(count, out var x))
+            do
             {
-                for (var j = 0; j < x; j++)
+                if (int.TryParse(count, out var x))
                 {
-                    SendMessage(j);
+                    for (var j = 0; j < x; j++)
+                    {
+                        SendMessage(j);
+                    }
                 }
-            }
+                Console.WriteLine("All messages have been sent!");
+                Console.WriteLine("Want more? Enter amount of messages to send, or 'quit' to exit");
+                count = Console.ReadLine();
+            } while (count != "quit");
+
 
             Console.ReadLine();
             _bus.StopAsync(new CancellationToken());
